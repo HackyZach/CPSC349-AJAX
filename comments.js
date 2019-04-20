@@ -11,10 +11,12 @@ function requestCommentsOne () {
       $('#comments-1').append('<h3 id="comments-1-header">Comments</h3>');
       for (let i = 0; i < response.length; ++i) {
         let body = String(response[i].body);
-        body.replace('\n', '<br>');
+
+        body = body.replace('\n', '<br>');
+
         $('#comments-1').append('<p data-comments="body">' + body + '</p>');
         $('#comments-1').append('<address data-comments="name">');
-        $('#comments-1').append('<a data-comments="email" href=mailto:' + response[i].email + '>' + response[i].email);
+        $('#comments-1').append('<a data-comments="email" href=mailto:' + response[i].email + '>' + response[i].name);
         $('#comments-1').append('</a>');
         $('#comments-1').append('</address>');
       }
